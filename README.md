@@ -1,2 +1,2 @@
 # Material Design
-# Author: Neal Pu & Eli Andrew
+# Author: Neal Pu and Eli Andrew
