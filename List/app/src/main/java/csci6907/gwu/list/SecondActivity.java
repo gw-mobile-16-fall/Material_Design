@@ -28,7 +28,7 @@ public class SecondActivity extends AppCompatActivity {
     public  static List<SecondListItem> getData(){
         List<SecondListItem> models = new ArrayList<SecondListItem>();
         for (int i = 1; i <= 50; i++) {
-            SecondListItem item = new SecondListItem("This is Item" + i + "Second List");
+            SecondListItem item = new SecondListItem("This is Item " + i + " of Second List");
             models.add(item);
         }
         return  models;
