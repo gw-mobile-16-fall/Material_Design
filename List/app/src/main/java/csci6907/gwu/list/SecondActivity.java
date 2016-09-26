@@ -18,13 +18,21 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        //get the view of recylcerview
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view_2);
+
+        // set recylcerview layout
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // set recylcerview animation
         mRecyclerView.setItemAnimator( new DefaultItemAnimator());
 
+        // bind adapter
         mAdapter = new SecondListAdapter(getData());
         mRecyclerView.setAdapter(mAdapter);
     }
+
+    // create dummy dataset
     public  static List<SecondListItem> getData(){
         List<SecondListItem> models = new ArrayList<SecondListItem>();
         for (int i = 1; i <= 50; i++) {
