@@ -4,6 +4,10 @@ package csci6907.gwu.list;
  * Created by Minghao Pu on 9/26/16.
  */
 
+/**
+ * Data model for the first list
+ */
+
 public class ListItem {
     public ListItem(String title, String detail) {
         this.detail = detail;

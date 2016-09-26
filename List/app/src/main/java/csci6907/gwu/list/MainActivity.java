@@ -18,13 +18,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //get the view of recylcerview
         mRecyclerView1 = (RecyclerView)findViewById(R.id.recycler_view_1);
+
+        // set recylcerview layout
         mRecyclerView1.setLayoutManager(new LinearLayoutManager(this));
+
+        // set recylcerview animation
         mRecyclerView1.setItemAnimator( new DefaultItemAnimator());
 
+        // bind adapter
         mAdapter = new ListAdapter(this, getData());
         mRecyclerView1.setAdapter(mAdapter);
     }
+
+    // create dummy dataset
     public  static List<ListItem> getData(){
         List<ListItem> models = new ArrayList<ListItem>();
         for (int i = 1; i <= 50; i++) {
