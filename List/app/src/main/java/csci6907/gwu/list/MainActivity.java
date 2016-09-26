@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView1;
-    private MyAdapter mAdapter;
+    private ListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView1.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView1.setItemAnimator( new DefaultItemAnimator());
 
-        mAdapter = new MyAdapter(getData());
+        mAdapter = new ListAdapter(this, getData());
         mRecyclerView1.setAdapter(mAdapter);
     }
     public  static List<ListItem> getData(){

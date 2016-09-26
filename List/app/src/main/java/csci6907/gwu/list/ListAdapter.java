@@ -1,5 +1,7 @@
 package csci6907.gwu.list;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +14,15 @@ import java.util.List;
  * Created by Minghao Pu on 9/26/16.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private List<ListItem> mdata = null;
-    private LayoutInflater inflater;
+    private Context mContext;
 
 
-    public MyAdapter(List<ListItem> data) {
+    public ListAdapter(Context context, List<ListItem> data) {
         this.mdata = data;
+        this.mContext = context;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -36,13 +39,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return mdata.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView mTitleView;
         public TextView mDetailView;
         public ViewHolder(View itemView){
             super(itemView);
             mTitleView = (TextView) itemView.findViewById(R.id.item_title);
             mDetailView = (TextView) itemView.findViewById(R.id.item_detail);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mContext.startActivity(new Intent(mContext, SecondActivity.class));
         }
     }
     public ListItem getItem(int position) {
@@ -52,4 +61,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public long getItemId(int position) {
         return position;
     }
+
+
 }
